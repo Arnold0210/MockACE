@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-				sh ls -ltra
+				sh '''#!/bin/bash
+				ls -ltra'''
                 echo 'Building..'
 				
             }
