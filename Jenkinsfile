@@ -6,7 +6,6 @@ pipeline {
             steps {
 				sh 'ls -ltra'
                 echo 'Building..'
-				
             }
         }
         stage('Test') {
