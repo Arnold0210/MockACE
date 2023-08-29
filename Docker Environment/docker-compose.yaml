@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   aceserver: 
-    image: acev12040-r2:latest
+    image: acev12v7r2:latest
     container_name: serverace
     ports:
       - 7600:7600
@@ -15,7 +15,7 @@ services:
       ACE_SERVER_NAME: ACESERVER
     restart: always
   mqdev:
-    image: arnold9810/mqserver:latest
+    image: arnold9810/mqserver:V0
     container_name: MQDEV
     environment:
       LICENSE: accept
