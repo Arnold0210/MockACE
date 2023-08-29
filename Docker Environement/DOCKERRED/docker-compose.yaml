@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  mqdev:
+      image: icr.io/ibm-messaging/mq:latest
+      container_name: mqdev
+      environment:
+        LICENSE: accept
+        MQ_QMGR_NAME: MQDEV
+        MQ_APP_PASSWORD: passw0rd
+        MQ_ADMIN_PASSWORD: passw0rd
+        MQSNOAUT: 'Yes'
+      ports:
+        - 1414:1414
+        - 9157:9157
+        - 9443:9443
+      volumes:
+        - mqvolume:/mnt/mqm
+      networks: 
+        - ace-mq-net
+  aceserver: 
+    image: acev12040-r2:latest
+    container_name: serverace
+    ports:
+      - 7600:7600
+      - 7800:7800
+      - 7843:7843
+    depends_on:
+      - mqdev
+    networks: 
+      - ace-mq-net
+    environment:
+      LICENSE: accept
+      ACE_SERVER_NAME: ACESERVER
+    restart: always
+volumes:
+    mqvolume:
+      name: mqvolume
+networks:
+  ace-mq-net:
+    name: ace-mq-net
+    driver: bridge
+    #external: true
+    

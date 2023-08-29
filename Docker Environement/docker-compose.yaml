@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  aceserver: 
+    image: acev12040-r2:latest
+    container_name: serverace
+    ports:
+      - 7600:7600
+      - 7800:7800
+      - 7843:7843
+    depends_on:
+      - mqdev
+    network_mode: bridge
+    environment:
+      LICENSE: accept
+      ACE_SERVER_NAME: ACESERVER
+    restart: always
+  mqdev:
+    image: arnold9810/mqserver:latest
+    container_name: MQDEV
+    environment:
+      LICENSE: accept
+      MQ_QMGR_NAME: MQDEV
+      MQ_APP_PASSWORD: passw0rd
+      MQ_ADMIN_PASSWORD: passw0rd
+      MQSNOAUT: 'Yes'
+    ports:
+      - 1414:1414
+      - 9157:9157
+      - 9443:9443
+    volumes:
+      - mqvolume:/mnt/mqm
+    network_mode: bridge
+volumes:
+    mqvolume:
+networks:
+  default:
+    external: true
+    name: ace-mq-net
