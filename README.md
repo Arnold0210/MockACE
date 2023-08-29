@@ -14,7 +14,7 @@ docker pull imageLocation
 -------------------------------------
 Imagen de ACE usada en el laboratorio:
 
-docker run --name aceserver -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER cp.icr.io/cp/appc/ace-server-prod@sha256:246828d9f89c4ed3a6719cd3e4b71b1dec382f848c9bf9c28156f78fa05bc4e7
+docker run --name aceserver -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER cp.icr.io/cp/appc/ace:12.0.9.0-r1@sha256:0e03de28d175e15238896b1ae00b54ddda6a46b793173f9a7707187d6b58202e
 
 Imagen de MQ usada en el laboratorio:
 [mqserver:V0](https://hub.docker.com/layers/arnold9810/mqserver/V0/images/sha256-3558442d36a9fe730a1f832eba45e122829f5ab6b36cc3bb88eed29e65d0a02e?context=explore)
