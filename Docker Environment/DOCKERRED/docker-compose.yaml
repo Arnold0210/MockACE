@@ -18,7 +18,7 @@ services:
       networks: 
         - ace-mq-net
   aceserver: 
-    image: acev12v7r2:latest
+    image: arnold9810/ace12v9r1
     container_name: serverace
     ports:
       - 7600:7600
