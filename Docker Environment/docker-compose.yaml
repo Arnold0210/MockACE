@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   aceserver: 
-    image: arnold9810/ace12v9r1
+    image: arnold9810/ace12v9r1:V0
     container_name: serverace
     ports:
       - 7600:7600
@@ -15,7 +15,7 @@ services:
       ACE_SERVER_NAME: ACESERVER
     restart: always
   mqdev:
-    image: arnold9810/mqserver:V0
+    image: icr.io/ibm-messaging/mq:latest
     container_name: MQDEV
     environment:
       LICENSE: accept
